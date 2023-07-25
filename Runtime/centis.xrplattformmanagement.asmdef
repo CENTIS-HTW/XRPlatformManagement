@@ -1,0 +1,32 @@
+{
+    "name": "centis.xrplattformmanagement",
+    "rootNamespace": "CENTIS.XRPlatform",
+    "references": [
+        "GUID:a9420e37d7990b54abdef6688edbe313",
+        "GUID:5fd1261c63538f64cac5dd6097b19696"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "CloudRendering",
+        "EmbeddedLinux",
+        "GameCoreScarlett",
+        "GameCoreXboxOne",
+        "LinuxStandalone64",
+        "Lumin",
+        "PS4",
+        "PS5",
+        "Stadia",
+        "Switch",
+        "tvOS",
+        "WSA",
+        "WebGL",
+        "XboxOne"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
