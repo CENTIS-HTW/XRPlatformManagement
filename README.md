@@ -19,6 +19,32 @@ git remote add origin https://gitlab.rz.htw-berlin.de/inspirer/unitypackages/xr-
 git branch -M main
 git push -uf origin main
 ```
+## Pushing the Unity package to the upm branch
+
+**IMPORTANT**</br>
+Check that the `Samples` folder located under `Assets/` is renamed to `Samples~` before creating a new release!
+Otherwise Unity will throw an error stating that the contained scripts can't be compiled.
+This practice follows the Unity guidelines for creating the package structure.
+This only has to be done for the versions on the upm branch!
+
+Before you start, check that the version of the package under `Assets/XRPlatformManagement/package.json` is correct.
+Also check that `Assets/XRPlatformManagement/CHANGELOG.md` is updated, to reflect the changes made.
+
+Note that `"version"` needs to be replaced by the version number that you want to release.
+```
+git subtree split --prefix=Assets/XRPlatformManagement --branch upm
+git tag "version" upm
+git push origin upm --tags
+```
+
+To delete a wrong tag:
+```
+git tag -d tagName
+```
+If the wrong tag is already pushed:
+```
+git push origin :tagName
+```
 
 ## Integrate with your tools
 
