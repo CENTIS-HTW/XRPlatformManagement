@@ -1,4 +1,4 @@
-# XR-Plattform-Management
+# XR-Platform-Management
 
 
 

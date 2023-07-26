@@ -1,0 +1,20 @@
+{
+  "name": "de.htw-berlin.centis.xrplatformmanagement",
+  "version": "0.1.0",
+  "displayName": "XR-Platform-Management",
+  "description": "Collection of Tools to help application management on different platforms for XR-Development",
+  "unity": "2021.3",
+  "unityRelease": "24f1",
+  "dependencies": {
+    "com.unity.xr.arfoundation": "4.2.8"
+  },
+ "keywords": [
+    "XR",
+    "Platforms"
+  ],
+  "author": {
+    "name": "CENTIS HTW-Berlin",
+    "email": "centis-htw-bounces@lists.htw-berlin.de",
+    "url": "https://fki.htw-berlin.de/centis/"
+  }
+}
