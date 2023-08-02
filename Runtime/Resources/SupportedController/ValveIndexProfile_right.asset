@@ -12,21 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
   m_Name: ValveIndexProfile_right
   m_EditorClassIdentifier: 
-  completeModel: {fileID: 919132149155446097, guid: 306569eb07e999843b9a6d4ef704a2cf,
-    type: 3}
-  body: {fileID: 919132149155446097, guid: 53fbbfd75917f8742982d063e67725ec, type: 3}
-  primaryButton: {fileID: 919132149155446097, guid: 000ff58f11ec2a941a2635b23dbb2cb7,
-    type: 3}
-  secondaryButton: {fileID: 919132149155446097, guid: b9ab9fe32e4010042b3e77b6017b1299,
-    type: 3}
-  trigger: {fileID: 919132149155446097, guid: 2e4a281220b35ea42b41f699f68e06f3, type: 3}
-  systemButton: {fileID: 919132149155446097, guid: b5181eceb87ef24479102d67306ff4e9,
-    type: 3}
-  thumbStick: {fileID: 919132149155446097, guid: 19e977dd866a9ac4b9cc9a8e36cd5e53,
-    type: 3}
-  trackpad: {fileID: 919132149155446097, guid: 8b9716862156a054288e34ad969a3764, type: 3}
-  statusLed: {fileID: 919132149155446097, guid: 0fd71893b6815264dbd9c0a2c1cbd269,
-    type: 3}
-  gripButtonPrimary: {fileID: 919132149155446097, guid: f419940096256bb4da41635cb46a3a63,
-    type: 3}
+  completeModel: {fileID: 919132149155446097, guid: 356571e1d4b07764bac26a1bfbb5d9df, type: 3}
+  body: {fileID: 919132149155446097, guid: 4671ddf5eabc71c41bca560958e3f94d, type: 3}
+  primaryButton: {fileID: 919132149155446097, guid: 479fd55a254ac1044bc2c53ad8f3cacf, type: 3}
+  secondaryButton: {fileID: 919132149155446097, guid: 6fad4499f30491d48b2d092f08587039, type: 3}
+  trigger: {fileID: 919132149155446097, guid: 079e91b5771f68846a4fd0bcbd79967f, type: 3}
+  systemButton: {fileID: 919132149155446097, guid: 193bda3a54772b24293daa3df7fe6e26, type: 3}
+  thumbStick: {fileID: 919132149155446097, guid: 177868d5b1c93854aafce2c437484ce9, type: 3}
+  trackpad: {fileID: 919132149155446097, guid: 023cdcf0e1f622c448b782bdf0062d47, type: 3}
+  statusLed: {fileID: 919132149155446097, guid: 0fd71893b6815264dbd9c0a2c1cbd269, type: 3}
+  gripButtonPrimary: {fileID: 919132149155446097, guid: feea4839b112f134bb7cfa52d64bea59, type: 3}
   gripButtonSecondary: {fileID: 0}

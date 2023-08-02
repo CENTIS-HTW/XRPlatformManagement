@@ -12,24 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
   m_Name: ViveWand
   m_EditorClassIdentifier: 
-  useParts: 1
-  penOffsetPosition: {x: 0, y: 0, z: 0.06}
-  penOffsetRotation: {x: 0, y: 0, z: 0}
-  center: {x: 0, y: -0.015, z: -0.05}
-  completeModel: {fileID: 919132149155446097, guid: 3c308a38b0eb1ee4db70a9e1924c11b8,
-    type: 3}
-  body: {fileID: 919132149155446097, guid: 311b68847051c6249b7d256849127014, type: 3}
-  primaryButton: {fileID: 919132149155446097, guid: cdeb5cbf24ef6cb47971c136560051d9,
-    type: 3}
+  completeModel: {fileID: 919132149155446097, guid: aa5cd197a3cf8a041bdbeaee8a6995c0, type: 3}
+  body: {fileID: 919132149155446097, guid: 78476b6c9a45fdc4281271cbe0d97084, type: 3}
+  primaryButton: {fileID: 919132149155446097, guid: 2fa9a2fba85593a438f9448bb1fa4fe9, type: 3}
   secondaryButton: {fileID: 0}
-  trigger: {fileID: 919132149155446097, guid: 886417be13cb24e45a5f206e6c01a04a, type: 3}
-  systemButton: {fileID: 919132149155446097, guid: b33b61a805452e34c8c52e4df8d35a5f,
-    type: 3}
+  trigger: {fileID: 919132149155446097, guid: b68c19897fce539499bb8e25ffa4fbc4, type: 3}
+  systemButton: {fileID: 919132149155446097, guid: c0c68a7ac47dc65419f7a6ca364f30b3, type: 3}
   thumbStick: {fileID: 0}
-  trackpad: {fileID: 919132149155446097, guid: 77f27e831ce6a76408f382f7c1395b0f, type: 3}
-  statusLed: {fileID: 919132149155446097, guid: e6c97a3bff73e984482ea45a65e30ddf,
-    type: 3}
-  gripButtonPrimary: {fileID: 919132149155446097, guid: 79074c7b0bc554e40961a5cd611f8860,
-    type: 3}
-  gripButtonSecondary: {fileID: 919132149155446097, guid: 75f57260ea8f9a9468289c10449a40b5,
-    type: 3}
+  trackpad: {fileID: 919132149155446097, guid: 241f83d268b6dc048b0c097d56885fce, type: 3}
+  statusLed: {fileID: 919132149155446097, guid: 274e2317f9d4aca4fabc867cdebfc039, type: 3}
+  gripButtonPrimary: {fileID: 919132149155446097, guid: 4ab756f170e6a1e4fbd3419765b8ada8, type: 3}
+  gripButtonSecondary: {fileID: 919132149155446097, guid: d066546af1d5eec4b8c15b0040f95ded, type: 3}
