@@ -12,25 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
   m_Name: ValveIndexProfile_left
   m_EditorClassIdentifier: 
-  useParts: 1
-  penOffsetPosition: {x: 0, y: -0.01, z: 0.135}
-  penOffsetRotation: {x: 0, y: 0, z: 0}
-  center: {x: 0, y: -0.015, z: -0.1}
-  completeModel: {fileID: 919132149155446097, guid: 3af630a14dae4e64483803a166881a78,
-    type: 3}
-  body: {fileID: 919132149155446097, guid: eac08f0b48bcf59479f8929406364d59, type: 3}
-  primaryButton: {fileID: 919132149155446097, guid: 0c255a07ac62d1c44a8c4f4d8ff9ba66,
-    type: 3}
-  secondaryButton: {fileID: 919132149155446097, guid: 84c9bacfb3c287641959e63ef742afd0,
-    type: 3}
-  trigger: {fileID: 919132149155446097, guid: 894f2d1523e1e994d960c2d75e38266c, type: 3}
-  systemButton: {fileID: 919132149155446097, guid: 4970e05dc63f6b842b1fdd29d1b37a38,
-    type: 3}
-  thumbStick: {fileID: 919132149155446097, guid: 1f7ccd22a3b8bbd4fb86f32286c504a6,
-    type: 3}
-  trackpad: {fileID: 919132149155446097, guid: ea134401313c765468e13e4f326ed78e, type: 3}
-  statusLed: {fileID: 919132149155446097, guid: be6c743b25bd9e74d9f1b5f4237c47cf,
-    type: 3}
-  gripButtonPrimary: {fileID: 919132149155446097, guid: 81a0d7bff6027e74a971d674ee70f3c9,
-    type: 3}
+  completeModel: {fileID: 919132149155446097, guid: e40869a74fd17fa409c54d1a92a9af54, type: 3}
+  body: {fileID: 919132149155446097, guid: 8a2a818099ae65b478b8f049342b3cd5, type: 3}
+  primaryButton: {fileID: 919132149155446097, guid: 1229a6018d8417f47b8dbcb6426cc348, type: 3}
+  secondaryButton: {fileID: 919132149155446097, guid: 5ead1cc71545faa45b6f220a40b41e6f, type: 3}
+  trigger: {fileID: 919132149155446097, guid: cd1915cf149425a449e9426edaa1b5b9, type: 3}
+  systemButton: {fileID: 919132149155446097, guid: f10260c865157524b94ebb0682fc743d, type: 3}
+  thumbStick: {fileID: 919132149155446097, guid: 2259635a46b048044ba947913a8a3f88, type: 3}
+  trackpad: {fileID: 919132149155446097, guid: 7c6b3fadb3dde794c8174f5fa2dd53ab, type: 3}
+  statusLed: {fileID: 919132149155446097, guid: 4e889f9c5f2d0364f9b7a7c894df6abb, type: 3}
+  gripButtonPrimary: {fileID: 919132149155446097, guid: 03ef9230f8a0a644f9e5f5d0a588109c, type: 3}
   gripButtonSecondary: {fileID: 0}

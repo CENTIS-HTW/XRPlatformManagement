@@ -12,24 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
   m_Name: OculusRiftsControllerProfile_left
   m_EditorClassIdentifier: 
-  useParts: 1
-  penOffsetPosition: {x: 0, y: 0, z: 0}
-  penOffsetRotation: {x: 0, y: 0, z: 0}
-  center: {x: 0, y: -0.01, z: -0.07}
-  completeModel: {fileID: 919132149155446097, guid: 695ad796c0a45204a88a26457718abd8,
-    type: 3}
-  body: {fileID: 919132149155446097, guid: 43b7ba33942f9c340be3c44e3c9eae45, type: 3}
-  primaryButton: {fileID: 919132149155446097, guid: d9dfd1c4dee89614cbfa49441d7ce64c,
-    type: 3}
-  secondaryButton: {fileID: 919132149155446097, guid: 2b1db769bf3d4fc4d90a5dd46e503190,
-    type: 3}
-  trigger: {fileID: 919132149155446097, guid: 82c1004dd7601574382d00783f7999ae, type: 3}
-  systemButton: {fileID: 919132149155446097, guid: 85edb7425ffc2d646b86331782b429b0,
-    type: 3}
-  thumbStick: {fileID: 919132149155446097, guid: 339fc0745ad753948b6c65987b79d51a,
-    type: 3}
+  completeModel: {fileID: 919132149155446097, guid: 5e666cbd320cb1340a750442749ae86c, type: 3}
+  body: {fileID: 919132149155446097, guid: a01c570217cac7a4a9e579880346aee5, type: 3}
+  primaryButton: {fileID: 919132149155446097, guid: bd70c824b75181b4aa45da4c421e05d8, type: 3}
+  secondaryButton: {fileID: 919132149155446097, guid: eddd0547d7a4970459dc99aaba02d358, type: 3}
+  trigger: {fileID: 919132149155446097, guid: 96b083522a947c24d8cffe97d2662f02, type: 3}
+  systemButton: {fileID: 919132149155446097, guid: 41e477639e0a17144b47d0839cecbe71, type: 3}
+  thumbStick: {fileID: 919132149155446097, guid: 7a623bedcfad6a144b5f899cf652998c, type: 3}
   trackpad: {fileID: 0}
   statusLed: {fileID: 0}
-  gripButtonPrimary: {fileID: 919132149155446097, guid: 3583955212c827e4990a7b426eb7e57b,
-    type: 3}
+  gripButtonPrimary: {fileID: 919132149155446097, guid: 5b8a796163db3ff4fada53d6d62568f3, type: 3}
   gripButtonSecondary: {fileID: 0}
