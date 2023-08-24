@@ -32,6 +32,9 @@ namespace CENTIS.XRPlatform.ControllerModels
         [SerializeField]
         private bool debugMode = false;
 
+        [SerializeField] 
+        private ControllerProfile defaultProfile;
+
         [Header("Instantiated Controller (set during runtime)")]
         
         [SerializeField] private ControllerElement completeModel;
@@ -107,6 +110,11 @@ namespace CENTIS.XRPlatform.ControllerModels
             else if (debugMode)
             {
                 _currentProfile = _profiles[currentControllerModel.ToString()];
+                InitializeController();
+            }
+            else
+            {
+                _currentProfile = defaultProfile;
                 InitializeController();
             }
         }
