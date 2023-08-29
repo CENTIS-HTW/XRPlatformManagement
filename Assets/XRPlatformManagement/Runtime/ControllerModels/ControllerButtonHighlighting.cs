@@ -65,8 +65,8 @@ namespace CENTIS.XRPlatform.ControllerModels
 
             foreach (Enum button in buttonValues)
             {
-                if (!modelRenderer.Objects.ContainsKey(button)) continue;
-                modelRenderer.Objects[button].OnHighlightElement(highlightMaterial);
+                if (!modelRenderer.GetCurrentModelsLookup().ContainsKey(button)) continue;
+                modelRenderer.GetCurrentModelsLookup()[button].OnHighlightElement(highlightMaterial);
             }
 
             _isHighlighted = true;
@@ -79,8 +79,8 @@ namespace CENTIS.XRPlatform.ControllerModels
             Enum[] buttonValues = buttonMask.GetUniqueFlags().ToArray();
             foreach (Enum button in buttonValues)
             {
-                if (!modelRenderer.Objects.ContainsKey(button)) continue;
-                modelRenderer.Objects[button].OnUnhighlightElement();
+                if (!modelRenderer.GetCurrentModelsLookup().ContainsKey(button)) continue;
+                modelRenderer.GetCurrentModelsLookup()[button].OnUnhighlightElement();
             }
 
             _isHighlighted = false;
