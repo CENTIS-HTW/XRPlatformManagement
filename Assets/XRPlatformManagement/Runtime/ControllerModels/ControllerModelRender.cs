@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CENTIS.XRPlatformManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
@@ -13,13 +14,17 @@ namespace CENTIS.XRPlatform.ControllerModels
             Left,
             Right
         }
-
         
         #region Fields
-        
+
+        [Tooltip("The Profiles of the Controllers, that can be loaded. If null it will call Resources.LoadAll<ControllerProfile>(\"SupportedController\")")]
+        [SerializeField] private ControllerProfileSet _controllerProfileSet;
         [SerializeField] private Handedness _handedness = Handedness.Left;
+        [Tooltip("The default Controller that will be shown, if no Controller was found. Can be Null, in which case no Controller will be instantiated!")]
         [SerializeField] private ControllerProfile _defaultProfile;
-        [SerializeField, Tooltip("The default Controller will be active, event if a new device was enabled")] private bool _alwaysShowDefault;
+        [Tooltip("The default Controller will be active, event if a new device was enabled")]
+        [SerializeField] private bool _alwaysShowDefault;
+        [SerializeField] private Transform _modelParent;
 
         [Header("Events")] 
         [SerializeField] private UnityEvent<ControllerModelRender, Vector3, Vector3> _modelInitialized;
@@ -30,65 +35,37 @@ namespace CENTIS.XRPlatform.ControllerModels
         private ControllerProfile defaultBufferProfile;
         private readonly Dictionary<string, ControllerProfile> profiles = new();
         
-        public ControllerElement CompleteModel => completeModel;
-        private ControllerElement completeModel;
-
-        public ControllerElement Body => body;
-        private ControllerElement body;
-
-        public ControllerElement PrimaryButton => primaryButton;
-        private ControllerElement primaryButton;
-
-        public ControllerElement SecondaryButton => secondaryButton;
-        private ControllerElement secondaryButton;
-
-        public ControllerElement Trigger => trigger;
-        private ControllerElement trigger;
-
-        public ControllerElement SystemButton => systemButton;
-        private ControllerElement systemButton;
-
-        public ControllerElement ThumbStick => thumbStick;
-        private ControllerElement thumbStick;
-
-        public ControllerElement Trackpad => trackpad;
-        private ControllerElement trackpad;
-
-        public ControllerElement StatusLed => statusLed;
-        private ControllerElement statusLed;
-
-        public ControllerElement GripButtonPrimary => gripButtonPrimary;
-        private ControllerElement gripButtonPrimary;
-
-        public ControllerElement GripButtonSecondary => gripButtonSecondary;
-        private ControllerElement gripButtonSecondary;
-        
         #endregion
         
         #region Unity Lifecycle
         
         private void Awake()
         {
+            if (_modelParent == null)
+            {
+                _modelParent = new GameObject($"[{gameObject.name}] Model Parent").transform;
+                _modelParent.SetParent(transform, false);
+                _modelParent.localPosition = Vector3.zero;
+                _modelParent.localRotation = Quaternion.identity;
+            }
+            
             InitializeControllerProfiles();
+            
+            if (_defaultProfile != null)
+            {
+                LoadController(ref defaultBufferProfile, defaultModelsLookup, _defaultProfile);
+            }
 
-            LoadController(ref defaultBufferProfile, defaultModelsLookup, _defaultProfile);
+            InputDevices.deviceConnected += OnTrackingAcquired;
+            InputDevices.deviceDisconnected += OnTrackingLost;
         }
 
         private void OnDestroy()
         {
+            InputDevices.deviceConnected -= OnTrackingAcquired;
+            InputDevices.deviceDisconnected -= OnTrackingLost;
+            
             DestroyInputDevice(ref defaultBufferProfile, defaultModelsLookup);
-        }
-
-        private void OnEnable()
-        {
-            InputTracking.nodeAdded += OnTrackingAcquired;
-            InputTracking.nodeRemoved += OnTrackingLost;
-        }
-
-        private void OnDisable()
-        {
-            InputTracking.nodeAdded -= OnTrackingAcquired;
-            InputTracking.nodeRemoved -= OnTrackingLost;
         }
 
         #endregion
@@ -97,24 +74,34 @@ namespace CENTIS.XRPlatform.ControllerModels
         
         private void InitializeControllerProfiles()
         {
-            // Lookup for existing supported Controllers and load them into a lookup-dict.
-            foreach (ControllerProfile profile in Resources.LoadAll<ControllerProfile>("SupportedController"))
+            if (_controllerProfileSet != null)
             {
-                profiles.TryAdd(profile.ManufacturerName, profile);
+                for (int i = 0; i < _controllerProfileSet.Count(); i++)
+                {
+                    ControllerProfile profile = _controllerProfileSet.GetAt(i);
+                    profiles.TryAdd(profile.ManufacturerType.type, profile);
+                }
+            }
+            else
+            {
+                // Lookup for existing supported Controllers and load them into a lookup-dict.
+                foreach (ControllerProfile profile in Resources.LoadAll<ControllerProfile>("SupportedController"))
+                {
+                    profiles.TryAdd(profile.ManufacturerType.type, profile);
+                }
             }
         }
         
-        private void OnTrackingAcquired(XRNodeState node)
+        private void OnTrackingAcquired(InputDevice controller)
         {
             if (_alwaysShowDefault)
             {
                 return;
             }
-        
-            InputDevice controller = InputDevices.GetDeviceAtXRNode(node.nodeType);
+            
             if (!IsValidController(controller))
                 return;
-        
+
             if (profiles.TryGetValue(controller.manufacturer, out var profile))
             {
                 DisableDefaultInputDevice();
@@ -128,9 +115,8 @@ namespace CENTIS.XRPlatform.ControllerModels
 #endif
         }
 
-        private void OnTrackingLost(XRNodeState node)
+        private void OnTrackingLost(InputDevice controller)
         {
-            InputDevice controller = InputDevices.GetDeviceAtXRNode(node.nodeType);
             if (!IsValidController(controller) || inputDeviceBufferProfile == null)
                 return;
 
@@ -138,10 +124,16 @@ namespace CENTIS.XRPlatform.ControllerModels
             EnableDefaultInputDevice();
         }
         
+        /// <summary>
+        /// Check if its a controller and the correct side
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <returns></returns>
         private bool IsValidController(InputDevice controller)
         {
-            // Check if its a controller and the correct side
-            return (controller.characteristics & InputDeviceCharacteristics.Controller) == 0 ||
+            return (controller.characteristics & InputDeviceCharacteristics.HeldInHand) == 0 ||
+                   (controller.characteristics & InputDeviceCharacteristics.TrackedDevice) == 0 ||
+                   (controller.characteristics & InputDeviceCharacteristics.Controller) == 0 ||
                    ((controller.characteristics & InputDeviceCharacteristics.Left) != 0) !=
                    (_handedness == Handedness.Left);
         }
@@ -196,25 +188,22 @@ namespace CENTIS.XRPlatform.ControllerModels
         {
             if (!bufferedProfile.UseParts)
             {
-                completeModel = InstantiateControllerElement(modelsLookup, ControllerButtonMask.CompleteModel, controllerModel.CompleteModel);
+                InstantiateControllerElement(modelsLookup, ControllerButtonMask.CompleteModel, controllerModel.GetModelByMask(ControllerButtonMask.CompleteModel));
                 return;
             }
-
-            body = InstantiateControllerElement(modelsLookup, ControllerButtonMask.Body,controllerModel.Body);
-            primaryButton = InstantiateControllerElement(modelsLookup, ControllerButtonMask.PrimaryButton, controllerModel.PrimaryButton);
-            secondaryButton = InstantiateControllerElement(modelsLookup, ControllerButtonMask.SecondaryButton, controllerModel.SecondaryButton);
-            trigger = InstantiateControllerElement(modelsLookup, ControllerButtonMask.Trigger, controllerModel.Trigger);
-            systemButton = InstantiateControllerElement(modelsLookup, ControllerButtonMask.SystemButton, controllerModel.SystemButton);
-            thumbStick = InstantiateControllerElement(modelsLookup, ControllerButtonMask.ThumbStick, controllerModel.ThumbStick);
-            trackpad = InstantiateControllerElement(modelsLookup, ControllerButtonMask.Trackpad, controllerModel.Trackpad);
-            statusLed = InstantiateControllerElement(modelsLookup, ControllerButtonMask.StatusLED, controllerModel.StatusLed);
-            gripButtonPrimary = InstantiateControllerElement(modelsLookup, ControllerButtonMask.GripButtonPrimary, controllerModel.GripButtonPrimary);
-            gripButtonSecondary = InstantiateControllerElement(modelsLookup, ControllerButtonMask.GripButtonSecondary, controllerModel.GripButtonSecondary);
+            
+            foreach (ControllerButtonMask controllerButtonMask in (ControllerButtonMask[]) Enum.GetValues(typeof(ControllerButtonMask)))
+            {
+                if (controllerButtonMask != ControllerButtonMask.CompleteModel && controllerButtonMask != ControllerButtonMask.None)
+                {
+                    InstantiateControllerElement(modelsLookup, controllerButtonMask, controllerModel.GetModelByMask(controllerButtonMask));
+                }
+            }
         }
 
-        private ControllerElement InstantiateControllerElement(Dictionary<Enum, ControllerElement> modelsLookup, Enum key, GameObject element)
+        private void InstantiateControllerElement(Dictionary<Enum, ControllerElement> modelsLookup, Enum key, GameObject element)
         {
-            if (element == null) return null;
+            if (element == null) return;
 
             if (modelsLookup.ContainsKey(key))
             {
@@ -222,16 +211,39 @@ namespace CENTIS.XRPlatform.ControllerModels
                 modelsLookup.Remove(key);
             }
 
-            GameObject clone = Instantiate(element, transform, true);
+            GameObject clone = Instantiate(element, _modelParent, true);
             ControllerElement newElement = clone.AddComponent<ControllerElement>();
             modelsLookup.Add(key, newElement);
             newElement.ControllerElementName = key;
-            return newElement;
         }
         
         #endregion
         
-        #region public methods
+        #region public
+
+        public ControllerProfile GetCurrentControllerProfile()
+        {
+            if (inputDeviceBufferProfile != null && !_alwaysShowDefault)
+            {
+                return inputDeviceBufferProfile;
+            }
+
+            if (defaultBufferProfile == null)
+            {
+                Debug.LogWarning("Couldn't get a controller profile due to none registered right now.");
+                return null;
+            }
+
+            return defaultBufferProfile;
+        }
+        
+        public ControllerModel GetCurrentControllerModel()
+        {
+            ControllerProfile currentControllerProfile = GetCurrentControllerProfile();
+            return _handedness == Handedness.Left
+                ? currentControllerProfile.LeftHand
+                : currentControllerProfile.RightHand;
+        }
         
         public Dictionary<Enum, ControllerElement> GetCurrentModelsLookup()
         {
@@ -239,8 +251,19 @@ namespace CENTIS.XRPlatform.ControllerModels
             {
                 return inputDeviceModelsLookup;
             }
+            
+            if (defaultModelsLookup == null)
+            {
+                Debug.LogWarning("Couldn't get a models lookup due to none registered right now.");
+                return null;
+            }
 
             return defaultModelsLookup;
+        }
+        
+        public bool TryGetCurrentModelsLookupByType(ControllerButtonMask controllerButtonMask, out ControllerElement controllerElement)
+        {
+            return GetCurrentModelsLookup().TryGetValue(controllerButtonMask, out controllerElement);
         }
         
         #endregion
