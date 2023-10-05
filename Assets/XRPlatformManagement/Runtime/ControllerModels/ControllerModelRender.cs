@@ -159,7 +159,7 @@ namespace CENTIS.XRPlatform.ControllerModels
         {
             foreach (ControllerElement element in modelsLookup.Values)
             {
-                Destroy(element);
+                Destroy(element.gameObject);
             }
             modelsLookup.Clear();
             profile = null;
