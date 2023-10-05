@@ -96,8 +96,6 @@ namespace CENTIS.XRPlatform.ControllerModels
         
         private void OnTrackingAcquired(XRNodeState node)
         {
-            Debug.Log("Tracking Aquired");
-            
             if (_alwaysShowDefault)
             {
                 return;
@@ -123,7 +121,6 @@ namespace CENTIS.XRPlatform.ControllerModels
 
         private void OnTrackingLost(XRNodeState node)
         {
-            Debug.Log("Tracking Lost");
             InputDevice controller = InputDevices.GetDeviceAtXRNode(node.nodeType);
             if (!IsValidController(controller) || inputDeviceBufferProfile == null)
                 return;
@@ -140,9 +137,9 @@ namespace CENTIS.XRPlatform.ControllerModels
         /// <returns></returns>
         private bool IsValidController(InputDevice controller)
         {
-            return (controller.characteristics & InputDeviceCharacteristics.HeldInHand) == 0 ||
-                   (controller.characteristics & InputDeviceCharacteristics.TrackedDevice) == 0 ||
-                   (controller.characteristics & InputDeviceCharacteristics.Controller) == 0 ||
+            return (controller.characteristics & InputDeviceCharacteristics.HeldInHand) == 0 &&
+                   (controller.characteristics & InputDeviceCharacteristics.TrackedDevice) == 0 &&
+                   (controller.characteristics & InputDeviceCharacteristics.Controller) == 0 &&
                    ((controller.characteristics & InputDeviceCharacteristics.Left) != 0) !=
                    (_handedness == Handedness.Left);
         }
@@ -237,12 +234,6 @@ namespace CENTIS.XRPlatform.ControllerModels
                 return inputDeviceBufferProfile;
             }
 
-            if (defaultBufferProfile == null)
-            {
-                Debug.LogWarning("Couldn't get a controller profile due to none registered right now.");
-                return null;
-            }
-
             return defaultBufferProfile;
         }
         
@@ -259,12 +250,6 @@ namespace CENTIS.XRPlatform.ControllerModels
             if (inputDeviceBufferProfile != null && !_alwaysShowDefault)
             {
                 return inputDeviceModelsLookup;
-            }
-            
-            if (defaultModelsLookup == null)
-            {
-                Debug.LogWarning("Couldn't get a models lookup due to none registered right now.");
-                return null;
             }
 
             return defaultModelsLookup;
