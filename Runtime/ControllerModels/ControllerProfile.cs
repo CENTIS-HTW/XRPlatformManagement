@@ -1,3 +1,4 @@
+using CENTIS.XRPlatformManagement;
 using UnityEngine;
 
 namespace CENTIS.XRPlatform.ControllerModels
@@ -8,7 +9,7 @@ namespace CENTIS.XRPlatform.ControllerModels
     [CreateAssetMenu(fileName = "ControllerProfile", menuName = "INSPIRER/VR/Controller/Profile", order = 1)]
     public class ControllerProfile : ScriptableObject
     {
-        [SerializeField] private string manufacturerName;
+        [SerializeField] private ScriptableObjectType manufacturerType;
         [SerializeField] private bool useParts;
 
         [SerializeField] private Vector3 penOffsetPosition;
@@ -19,7 +20,7 @@ namespace CENTIS.XRPlatform.ControllerModels
         [SerializeField] private ControllerModel leftHand;
         [SerializeField] private ControllerModel rightHand;
 
-        public string ManufacturerName => manufacturerName;
+        public ScriptableObjectType ManufacturerType => manufacturerType;
 
         public bool UseParts => useParts;
 

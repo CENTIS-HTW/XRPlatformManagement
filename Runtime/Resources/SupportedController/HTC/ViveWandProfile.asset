@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48b86c103f2a3f409d5311ac04e7132, type: 3}
-  m_Name: HTCWandProfile
+  m_Name: ViveWandProfile
   m_EditorClassIdentifier: 
-  manufacturerName: HTC
+  manufacturerType: {fileID: 11400000, guid: bae2bd81e18f312498d1b15c9ca8e82c, type: 2}
   useParts: 1
   penOffsetPosition: {x: 0, y: 0, z: 0.06}
   penOffsetRotation: {x: 0, y: 0, z: 0}

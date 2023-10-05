@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CENTIS.XRPlatform.ControllerModels
@@ -19,27 +21,39 @@ namespace CENTIS.XRPlatform.ControllerModels
         [SerializeField] private GameObject statusLed;
         [SerializeField] private GameObject gripButtonPrimary;
         [SerializeField] private GameObject gripButtonSecondary;
-        
-        public GameObject CompleteModel => completeModel;
 
-        public GameObject Body => body;
-
-        public GameObject PrimaryButton => primaryButton;
-
-        public GameObject SecondaryButton => secondaryButton;
-        
-        public GameObject Trigger => trigger;
-
-        public GameObject SystemButton => systemButton;
-
-        public GameObject ThumbStick => thumbStick;
-
-        public GameObject Trackpad => trackpad;
-
-        public GameObject StatusLed => statusLed;
-
-        public GameObject GripButtonPrimary => gripButtonPrimary;
-        
-        public GameObject GripButtonSecondary => gripButtonSecondary;
+        public GameObject GetModelByMask(ControllerButtonMask controllerButtonMask)
+        {
+            switch (controllerButtonMask)
+            {
+                case ControllerButtonMask.None:
+                    Debug.LogWarning($"Can't return a model with {ControllerButtonMask.None}!");
+                    return null;
+                case ControllerButtonMask.CompleteModel:
+                    return completeModel;
+                case ControllerButtonMask.Body:
+                    return body;
+                case ControllerButtonMask.PrimaryButton:
+                    return primaryButton;
+                case ControllerButtonMask.SecondaryButton:
+                    return secondaryButton;
+                case ControllerButtonMask.Trigger:
+                    return trigger;
+                case ControllerButtonMask.SystemButton:
+                    return systemButton;
+                case ControllerButtonMask.ThumbStick:
+                    return thumbStick;
+                case ControllerButtonMask.Trackpad:
+                    return trackpad;
+                case ControllerButtonMask.StatusLED:
+                    return statusLed;
+                case ControllerButtonMask.GripButtonPrimary:
+                    return gripButtonPrimary;
+                case ControllerButtonMask.GripButtonSecondary:
+                    return gripButtonSecondary;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(controllerButtonMask), controllerButtonMask, null);
+            }
+        }
     }
 }
