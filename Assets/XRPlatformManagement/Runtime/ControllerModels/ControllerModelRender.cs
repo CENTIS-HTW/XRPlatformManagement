@@ -27,6 +27,8 @@ namespace CENTIS.XRPlatform.ControllerModels
         [SerializeField] private Transform _modelParent;
 
         [Header("Events")] 
+        [SerializeField] private UnityEvent _onTrackingAcquired;
+        [SerializeField] private UnityEvent _onTrackingLost;
         [SerializeField] private UnityEvent<ControllerModelRender, Vector3, Vector3> _modelInitialized;
 
         private readonly Dictionary<Enum, ControllerElement> inputDeviceModelsLookup = new();
@@ -56,14 +58,14 @@ namespace CENTIS.XRPlatform.ControllerModels
                 LoadController(ref defaultBufferProfile, defaultModelsLookup, _defaultProfile);
             }
 
-            InputDevices.deviceConnected += OnTrackingAcquired;
-            InputDevices.deviceDisconnected += OnTrackingLost;
+            InputTracking.trackingAcquired += OnTrackingAcquired;
+            InputTracking.trackingLost += OnTrackingLost;
         }
 
         private void OnDestroy()
         {
-            InputDevices.deviceConnected -= OnTrackingAcquired;
-            InputDevices.deviceDisconnected -= OnTrackingLost;
+            InputTracking.trackingAcquired -= OnTrackingAcquired;
+            InputTracking.trackingLost -= OnTrackingLost;
             
             DestroyInputDevice(ref defaultBufferProfile, defaultModelsLookup);
         }
@@ -92,13 +94,16 @@ namespace CENTIS.XRPlatform.ControllerModels
             }
         }
         
-        private void OnTrackingAcquired(InputDevice controller)
+        private void OnTrackingAcquired(XRNodeState node)
         {
+            Debug.Log("Tracking Aquired");
+            
             if (_alwaysShowDefault)
             {
                 return;
             }
             
+            InputDevice controller = InputDevices.GetDeviceAtXRNode(node.nodeType);
             if (!IsValidController(controller))
                 return;
 
@@ -106,6 +111,7 @@ namespace CENTIS.XRPlatform.ControllerModels
             {
                 DisableDefaultInputDevice();
                 LoadController(ref inputDeviceBufferProfile, inputDeviceModelsLookup, profile);
+                _onTrackingAcquired?.Invoke();
             }
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             else
@@ -115,13 +121,16 @@ namespace CENTIS.XRPlatform.ControllerModels
 #endif
         }
 
-        private void OnTrackingLost(InputDevice controller)
+        private void OnTrackingLost(XRNodeState node)
         {
+            Debug.Log("Tracking Lost");
+            InputDevice controller = InputDevices.GetDeviceAtXRNode(node.nodeType);
             if (!IsValidController(controller) || inputDeviceBufferProfile == null)
                 return;
 
             DestroyInputDevice(ref inputDeviceBufferProfile, inputDeviceModelsLookup);
             EnableDefaultInputDevice();
+            _onTrackingLost?.Invoke();
         }
         
         /// <summary>
@@ -211,7 +220,7 @@ namespace CENTIS.XRPlatform.ControllerModels
                 modelsLookup.Remove(key);
             }
 
-            GameObject clone = Instantiate(element, _modelParent, true);
+            GameObject clone = Instantiate(element, _modelParent, false);
             ControllerElement newElement = clone.AddComponent<ControllerElement>();
             modelsLookup.Add(key, newElement);
             newElement.ControllerElementName = key;
