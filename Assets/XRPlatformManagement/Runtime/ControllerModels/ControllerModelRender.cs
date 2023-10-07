@@ -137,9 +137,9 @@ namespace CENTIS.XRPlatform.ControllerModels
         /// <returns></returns>
         private bool IsValidController(InputDevice controller)
         {
-            return (controller.characteristics & InputDeviceCharacteristics.HeldInHand) == 0 &&
-                   (controller.characteristics & InputDeviceCharacteristics.TrackedDevice) == 0 &&
-                   (controller.characteristics & InputDeviceCharacteristics.Controller) == 0 &&
+            return (controller.characteristics & InputDeviceCharacteristics.HeldInHand) != 0 &&
+                   (controller.characteristics & InputDeviceCharacteristics.TrackedDevice) != 0 &&
+                   (controller.characteristics & InputDeviceCharacteristics.Controller) != 0 &&
                    ((controller.characteristics & InputDeviceCharacteristics.Left) != 0) !=
                    (_handedness == Handedness.Left);
         }
