@@ -63,7 +63,7 @@ namespace CENTIS.XRPlatform.SceneManagement
             {
                 foreach (InputDevice device in inputDevices)
                 {
-                    Debug.Log(string.Format($"Device found with name '{device.manufacturer}' and role '{device.role.ToString()}'"));
+                    Debug.Log(string.Format($"Device found with name '{device.manufacturer}' and role '{device.characteristics}'"));
                 }
                 Debug.Log("Load VR-Scene...");
                 SceneManager.LoadScene(vrSceneToLoad);
