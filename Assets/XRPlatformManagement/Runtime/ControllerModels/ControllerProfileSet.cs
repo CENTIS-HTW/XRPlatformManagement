@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CENTIS.XRPlatformManagement
 {
-    [CreateAssetMenu(fileName = "new ProfileSet", menuName = "INSPIRER/VR/Controller/ProfileSet")]
+    [CreateAssetMenu(fileName = "new ProfileSet", menuName = "CENTIS/XRPlatformManagement/ProfileSet")]
     public class ControllerProfileSet : ScriptableObject
     {
         [SerializeField] private List<ControllerProfile> _controllerProfiles;

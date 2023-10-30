@@ -7,7 +7,7 @@ namespace CENTIS.XRPlatform.ControllerModels
     /// <summary>
     /// Defines a Controller Render Model.
     /// </summary>
-    [CreateAssetMenu(fileName = "ControllerModel", menuName = "INSPIRER/VR/Controller/RenderModel", order = 2)]
+    [CreateAssetMenu(fileName = "ControllerModel", menuName = "CENTIS/XRPlatformManagement/RenderModel", order = 2)]
     public class ControllerModel : ScriptableObject
     {
         [SerializeField] private GameObject completeModel;

@@ -6,7 +6,7 @@ namespace CENTIS.XRPlatform.ControllerModels
     /// <summary>
     /// Defines a Controller Profile with references to specific controller models for left and right hand.
     /// </summary>
-    [CreateAssetMenu(fileName = "ControllerProfile", menuName = "INSPIRER/VR/Controller/Profile", order = 1)]
+    [CreateAssetMenu(fileName = "ControllerProfile", menuName = "CENTIS/XRPlatformManagement/Profile", order = 1)]
     public class ControllerProfile : ScriptableObject
     {
         [SerializeField] private ScriptableObjectType manufacturerType;
