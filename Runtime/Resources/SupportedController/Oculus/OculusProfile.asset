@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48b86c103f2a3f409d5311ac04e7132, type: 3}
   m_Name: OculusProfile
   m_EditorClassIdentifier: 
-  manufacturerType: {fileID: 11400000, guid: 1a5b3bfe33696244d972264de35363c2, type: 2}
+  manufacturerType: {fileID: 11400000, guid: aeed8aa3d1ec27d4993dad987527e3a7, type: 2}
   useParts: 1
   penOffsetPosition: {x: 0, y: 0, z: 0}
   penOffsetRotation: {x: 0, y: 0, z: 0}
