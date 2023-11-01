@@ -1,4 +1,4 @@
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     [System.Flags]
     public enum ControllerButtonMask

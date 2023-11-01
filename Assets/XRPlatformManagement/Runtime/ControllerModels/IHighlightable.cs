@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     public interface IHighlightable
     {

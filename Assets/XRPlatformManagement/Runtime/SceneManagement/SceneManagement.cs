@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 
-namespace CENTIS.XRPlatform.SceneManagement
+namespace CENTIS.XRPlatformManagement.SceneManagement
 {
     /// <summary>
     /// This class checks the current running platform and if there are some Unity XR Features for VR/AR are activated.

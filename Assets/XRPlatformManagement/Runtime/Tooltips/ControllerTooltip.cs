@@ -1,7 +1,7 @@
 using UnityEngine;
-using CENTIS.XRPlatform.ControllerModels;
+using CENTIS.XRPlatformManagement.ControllerModels;
 
-namespace CENTIS.XRPlatform.Tooltips
+namespace CENTIS.XRPlatformManagement.Tooltips
 {
     /// <summary>
     /// Holds information for a tooltip

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CENTIS.XRPlatform.Utilities
+namespace CENTIS.XRPlatformManagement.Utilities
 {
     public static class EnumExtension
     {

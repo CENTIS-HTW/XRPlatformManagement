@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using CENTIS.XRPlatform.ControllerModels;
+using CENTIS.XRPlatformManagement.ControllerModels;
 using UnityEngine;
 
-namespace CENTIS.XRPlatformManagement
+namespace CENTIS.XRPlatformManagementManagement
 {
     [CreateAssetMenu(fileName = "new ProfileSet", menuName = "CENTIS/XRPlatformManagement/ProfileSet")]
     public class ControllerProfileSet : ScriptableObject

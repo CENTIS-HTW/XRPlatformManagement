@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CENTIS.XRPlatform.Tooltips
+namespace CENTIS.XRPlatformManagement.Tooltips
 {
     /// <summary>
     /// Class holds components to visualize a tooltip
