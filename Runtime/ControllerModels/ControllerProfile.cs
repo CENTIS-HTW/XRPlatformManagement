@@ -1,12 +1,12 @@
-using CENTIS.XRPlatformManagement;
+using CENTIS.XRPlatformManagementManagement;
 using UnityEngine;
 
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     /// <summary>
     /// Defines a Controller Profile with references to specific controller models for left and right hand.
     /// </summary>
-    [CreateAssetMenu(fileName = "ControllerProfile", menuName = "CENTIS/XRPlatformManagement/Profile", order = 1)]
+    [CreateAssetMenu(fileName = "new ControllerProfile", menuName = "CENTIS/XRPlatformManagement/Profile", order = 1)]
     public class ControllerProfile : ScriptableObject
     {
         [SerializeField] private ScriptableObjectType manufacturerType;

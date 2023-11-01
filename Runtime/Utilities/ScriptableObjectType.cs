@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CENTIS.XRPlatformManagement
 {
-    [CreateAssetMenu(fileName = "new Type", menuName = "CENTIS/XRPlatformManagement/Type")]
+    [CreateAssetMenu(fileName = "new ScriptableObjectType", menuName = "CENTIS/XRPlatformManagement/ScriptableObjectType")]
     public class ScriptableObjectType : ScriptableObject
     {
         public string type;

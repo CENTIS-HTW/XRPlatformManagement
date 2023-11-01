@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using CENTIS.XRPlatformManagement;
+using CENTIS.XRPlatformManagementManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     public class ControllerModelRender : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     public class ControllerElement : MonoBehaviour, IHighlightable
     {

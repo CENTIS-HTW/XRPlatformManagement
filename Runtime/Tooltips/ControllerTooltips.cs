@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CENTIS.XRPlatform.ControllerModels;
-using CENTIS.XRPlatform.Utilities;
+using CENTIS.XRPlatformManagement.ControllerModels;
+using CENTIS.XRPlatformManagement.Utilities;
 using UnityEngine;
 
-namespace CENTIS.XRPlatform.Tooltips
+namespace CENTIS.XRPlatformManagement.Tooltips
 {
     /// <summary>
     /// Class manages and stores all single tooltips for Controller Buttons

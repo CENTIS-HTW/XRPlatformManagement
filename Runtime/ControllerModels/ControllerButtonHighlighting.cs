@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CENTIS.XRPlatform.Utilities;
+using CENTIS.XRPlatformManagement.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CENTIS.XRPlatform.ControllerModels
+namespace CENTIS.XRPlatformManagement.ControllerModels
 {
     [RequireComponent(typeof(ControllerModelRender))]
     public class ControllerButtonHighlighting : MonoBehaviour

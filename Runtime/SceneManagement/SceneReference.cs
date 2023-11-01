@@ -9,7 +9,7 @@ using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CENTIS.XRPlatform.SceneManagement
+namespace CENTIS.XRPlatformManagement.SceneManagement
 {
     
 // Author: JohannesMP (2018-08-12)
