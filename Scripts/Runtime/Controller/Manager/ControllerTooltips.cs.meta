@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5299e5413581d2b42b5f16046600aa60
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _controllerModelRenderer: {instanceID: 0}
+  - _controllerElementTooltipViewPrefab: {fileID: 8895458277185880024, guid: 2c9ff5dfa0d3e3e45bbb8b2a457fc13e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
+  m_Name: OculusRiftsControllerProfile_left
+  m_EditorClassIdentifier: 
+  completeModel: {fileID: 3685759060610476387, guid: 798dc680dff3c6e47a7248f4d0f00f4d, type: 3}
+  body: {fileID: 4777870346741262649, guid: 90b969e770d0a5f48952fe2fb16e613a, type: 3}
+  primaryButton: {fileID: 8639195670372589636, guid: 61c037bc302c0de40bec462a051f7abf, type: 3}
+  secondaryButton: {fileID: 832284784564914721, guid: 48e21cda4cc698c40ab08eadae4c23bb, type: 3}
+  trigger: {fileID: 1942362383958760275, guid: 53d89b1c052b9cb409facf31d92d56ce, type: 3}
+  systemButton: {fileID: 416056395131848829, guid: 836854d23ad8e054eb7403aed9700b11, type: 3}
+  thumbStick: {fileID: 2227424044984388898, guid: 816eed986301ab4489b1bf021b806798, type: 3}
+  trackpad: {fileID: 0}
+  statusLed: {fileID: 0}
+  gripButtonPrimary: {fileID: 2624077112805384169, guid: 9c6d3987e479a54449a154e7a4735b38, type: 3}
+  gripButtonSecondary: {fileID: 0}

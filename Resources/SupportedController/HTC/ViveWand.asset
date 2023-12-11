@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
+  m_Name: ViveWand
+  m_EditorClassIdentifier: 
+  completeModel: {fileID: 4157654970953088536, guid: 0e432031662212144a5cd6657e84237b, type: 3}
+  body: {fileID: 6613539494350743654, guid: f61f49a2de0e6204f9c71098634032f9, type: 3}
+  primaryButton: {fileID: 6933496423120130821, guid: 7317e3ac12d949d4fa9d18b4abb694bb, type: 3}
+  secondaryButton: {fileID: 0}
+  trigger: {fileID: 2048069203588468163, guid: b06e737b067ae9149975e234dd50900e, type: 3}
+  systemButton: {fileID: 8297441398721278813, guid: d12af2a807435ba469ad3e2f49259a48, type: 3}
+  thumbStick: {fileID: 0}
+  trackpad: {fileID: 2792906086251863500, guid: 785c9aebef8bd834080623c065c4bdc5, type: 3}
+  statusLed: {fileID: 3081550466950691367, guid: 7a64afb0ee6f40e47ae399126081c9c7, type: 3}
+  gripButtonPrimary: {fileID: 8265944086220511088, guid: 3fed8dd2b7e49304cab886bc224dc74b, type: 3}
+  gripButtonSecondary: {fileID: 1596535914332549719, guid: 70ad2aabbb8d8f34ab1f477bcef6a914, type: 3}

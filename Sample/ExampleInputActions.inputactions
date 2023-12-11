@@ -1,0 +1,34 @@
+{
+    "name": "ExampleInputActions",
+    "maps": [
+        {
+            "name": "Highlight",
+            "id": "2fd53c83-b8ed-44cb-a74f-a008d5e719d4",
+            "actions": [
+                {
+                    "name": "Highlight",
+                    "type": "Button",
+                    "id": "2bebe78b-c883-4031-99c1-9da8b1020787",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "22eef614-4a06-442a-abaf-36d9cb0b7ca9",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Highlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

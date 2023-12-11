@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
+  m_Name: ValveIndexProfile_left
+  m_EditorClassIdentifier: 
+  completeModel: {fileID: 8147415850693419516, guid: 8d05c348a470f7a49b41fb17de30c3e3, type: 3}
+  body: {fileID: 7761011673149242713, guid: c303a7856b7c7f94fbd83deeac862e8d, type: 3}
+  primaryButton: {fileID: 8735836073176557980, guid: b3b7dd14e0abfb245a0a407eb311edf6, type: 3}
+  secondaryButton: {fileID: 2755121441584750132, guid: 51137f0a54c28604ea778cf75f61de46, type: 3}
+  trigger: {fileID: 6236895015698458316, guid: d7aef185ece4e2749bc9a8dcdc8f2514, type: 3}
+  systemButton: {fileID: 1059436493644777222, guid: feb0e73615850eb4a8aaf5975f83177c, type: 3}
+  thumbStick: {fileID: 3139237375872445902, guid: b0f0e9eb829651c40973a567abbfdc5f, type: 3}
+  trackpad: {fileID: 1550455685929844462, guid: eb18fe9cfacbfa345bacaae5150699ee, type: 3}
+  statusLed: {fileID: 6270641068080634454, guid: baa3754b70c6dc14a97647183504436e, type: 3}
+  gripButtonPrimary: {fileID: 1596803181480187830, guid: c40882653c9b9ae49970bf90d4316c90, type: 3}
+  gripButtonSecondary: {fileID: 0}
