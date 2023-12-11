@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48b86c103f2a3f409d5311ac04e7132, type: 3}
+  m_Name: ValveIndexProfile
+  m_EditorClassIdentifier: 
+  manufacturerType: Valve
+  useParts: 1
+  leftHand: {fileID: 11400000, guid: 1428001172ee0bd4b8df25b10b77a5cf, type: 2}
+  rightHand: {fileID: 11400000, guid: 215ec5e13b7c8fc418f15921fef7ec60, type: 2}

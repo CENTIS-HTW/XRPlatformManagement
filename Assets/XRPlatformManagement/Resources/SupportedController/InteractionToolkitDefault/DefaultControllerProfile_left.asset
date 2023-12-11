@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73306af2b5e80144d85d03f31ba0fef8, type: 3}
+  m_Name: DefaultControllerProfile_left
+  m_EditorClassIdentifier: 
+  completeModel: {fileID: 2961428648086162428, guid: 6d86d06b7c1901d49adabac9887c31db, type: 3}
+  body: {fileID: 5625332068001052988, guid: 663619fa0b33064448ba2a7bf82cea92, type: 3}
+  primaryButton: {fileID: 3390478236009479114, guid: 99afa86e060fb3046a5dc563de935931, type: 3}
+  secondaryButton: {fileID: 3709181691697479630, guid: be9e09d081927654290ed89ba06fca3a, type: 3}
+  trigger: {fileID: 4940086742510296189, guid: bd717cb416ca89a4b85e048db2630513, type: 3}
+  systemButton: {fileID: 7021801598518370310, guid: 98e91cfd2d837674cab32384ba2de4c6, type: 3}
+  thumbStick: {fileID: 7752394710663061948, guid: 749583d454daba545896933404b704a6, type: 3}
+  trackpad: {fileID: 0}
+  statusLed: {fileID: 0}
+  gripButtonPrimary: {fileID: 5168730658462911138, guid: f9d96f921c16d814bbd9650005f4623b, type: 3}
+  gripButtonSecondary: {fileID: 0}

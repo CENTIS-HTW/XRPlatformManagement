@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7805048946214465691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7805048946214465685}
+  - component: {fileID: 7805048946214465684}
+  - component: {fileID: 3437464246485475121}
+  - component: {fileID: 5888407035388065795}
+  - component: {fileID: 1315786421019058383}
+  m_Layer: 0
+  m_Name: ControllerModelSpawner_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7805048946214465685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805048946214465691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7805048946214465684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805048946214465691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237b2309bf5135a47be104e4b61318f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handednessType: 0
+  _defaultProfile: {fileID: 11400000, guid: 72e0a4cbd20a2d94fb0976595e07f796, type: 2}
+  _alwaysShowDefault: 0
+  _modelParent: {fileID: 7805048946214465685}
+  _worldPositionStaysOnInstantiate: 0
+  _printManufacturerName: 0
+  _events:
+    _onTrackingInitialized:
+      m_PersistentCalls:
+        m_Calls: []
+    _onFinishTrackingAcquired:
+      m_PersistentCalls:
+        m_Calls: []
+    _onFinishTrackingLost:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &3437464246485475121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805048946214465691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29582f15bfcd46baf3d55ccaa93fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllerModelSpawner: {fileID: 7805048946214465684}
+  _modelButtonMask: -1
+  _isEnabled: 1
+  _events:
+    _onActivate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5888407035388065795}
+          m_TargetAssemblyTypeName: CENTIS.XRPlatformManagement.Controller.Manager.BaseActivatableControllerElementRegistration`1[[CENTIS.XRPlatformManagement.Controller.Elements.ControllerElementTooltip,
+            CENTIS.XRPlatformManagement.Runtime
+          m_MethodName: Activate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    _onDeactivate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5888407035388065795}
+          m_TargetAssemblyTypeName: CENTIS.XRPlatformManagement.Controller.Manager.BaseActivatableControllerElementRegistration`1[[CENTIS.XRPlatformManagement.Controller.Elements.ControllerElementTooltip,
+            CENTIS.XRPlatformManagement.Runtime
+          m_MethodName: Deactivate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  _highlightMaterial: {fileID: 2100000, guid: 7e4ebf222b3c2534c9aae48aeb31ff5a, type: 2}
+  _exchangeFirstMaterial: 1
+  _interactionInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Interaction Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 29d69215-5733-4e3a-9ce5-a6d8278708e3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7701440136855954767, guid: d0a63d4cbe85266418f41d4fb9231e7b, type: 3}
+--- !u!114 &5888407035388065795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805048946214465691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5299e5413581d2b42b5f16046600aa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllerModelSpawner: {fileID: 7805048946214465684}
+  _modelButtonMask: 12
+  _isEnabled: 1
+  _events:
+    _onActivate:
+      m_PersistentCalls:
+        m_Calls: []
+    _onDeactivate:
+      m_PersistentCalls:
+        m_Calls: []
+  _controllerElementTooltipViewPrefab: {fileID: 8895458277185880024, guid: 2c9ff5dfa0d3e3e45bbb8b2a457fc13e, type: 3}
+  _isTextVisible: 1
+  _isConnectionLineVisible: 1
+  _buttonTextMap:
+  - _modelButtonMask: 4
+    _instantiateAtObjectCenter: 1
+    _localPositionOverride: {x: 0, y: 0.04, z: 0}
+    _text: Primary
+  - _modelButtonMask: 8
+    _instantiateAtObjectCenter: 1
+    _localPositionOverride: {x: 0, y: 0.04, z: 0}
+    _text: Secondary
+--- !u!114 &1315786421019058383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805048946214465691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239084a67bbac3c41827ddec3ae8958c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllerModelSpawner: {fileID: 7805048946214465684}
+  _controllerInteractionData:
+  - _controllerProfile: {fileID: 11400000, guid: 72e0a4cbd20a2d94fb0976595e07f796, type: 2}
+    _point: {x: 0, y: 0, z: 0.04}
+    _rotationEuler: {x: 0, y: 0, z: 0}
+    _center: {x: 0, y: 0, z: 0}
+  _events:
+    _onControllerInteractionDataApplied:
+      m_PersistentCalls:
+        m_Calls: []
