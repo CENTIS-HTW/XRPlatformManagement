@@ -39,13 +39,11 @@ namespace VENTUS.PlaformPackageExtension
     
         private void OnEnableInteraction(InputAction.CallbackContext context)
         {
-            Debug.Log("Activate");
             Activate();
         }
 
         private void OnDisableInteraction(InputAction.CallbackContext context)
         {
-            Debug.Log("Deactivate");
             Deactivate();
         }
     

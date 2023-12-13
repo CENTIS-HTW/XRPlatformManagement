@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8078342253465260486}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8078342253465260487
 MonoBehaviour:
@@ -111,7 +111,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  _highlightMaterial: {fileID: 2100000, guid: 7e4ebf222b3c2534c9aae48aeb31ff5a, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: 5045099a2e36a1f40ba9084ef334194b, type: 2}
   _exchangeFirstMaterial: 1
   _interactionInput:
     m_UseReference: 1
@@ -153,11 +153,11 @@ MonoBehaviour:
   _buttonTextMap:
   - _modelButtonMask: 4
     _instantiateAtObjectCenter: 1
-    _localPositionOverride: {x: 0, y: 0.04, z: 0}
+    _localPositionOverride: {x: -0.07, y: 0.04, z: 0}
     _text: Primary
   - _modelButtonMask: 8
     _instantiateAtObjectCenter: 1
-    _localPositionOverride: {x: 0, y: 0.04, z: 0}
+    _localPositionOverride: {x: 0.07, y: 0.04, z: 0}
     _text: Secondary
 --- !u!114 &1969445974519117214
 MonoBehaviour:

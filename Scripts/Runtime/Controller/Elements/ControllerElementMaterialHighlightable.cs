@@ -8,25 +8,26 @@ namespace CENTIS.XRPlatformManagement.Controller.Elements
     /// </summary>
     public class ControllerElementMaterialHighlightable : BaseHighlightableComponent
     {
-        protected MeshRenderer Renderer;
-        protected bool IsHighlighted;
-        protected bool ExchangeFirst;
-
+        private bool _isHighlighted;
         private Material _highlightMaterialReference;
-        private Material _exchangedMaterial;
-        private readonly List<Material> _currentMaterials = new();
+
+        private readonly List<MaterialHighlightable> _materialHighlightable = new();
 
         public void Initialize(Material highlightMaterial, bool exchangeFirst)
         {
             _highlightMaterialReference = highlightMaterial;
-            Renderer = GetComponentInChildren<MeshRenderer>();
-            IsHighlighted = false;
-            ExchangeFirst = exchangeFirst;
+            
+            foreach (var meshRenderer in GetComponentsInChildren<MeshRenderer>())
+            {
+                _materialHighlightable.Add(new MaterialHighlightable(meshRenderer, _highlightMaterialReference, exchangeFirst));
+            }
+            
+            _isHighlighted = false;
         }
 
         public override void HighlightElement()
         {
-            if (IsHighlighted)
+            if (_isHighlighted)
             {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 Debug.LogWarning($"Tried to highlight: {gameObject.name} which is already highlighted!!");
@@ -34,27 +35,17 @@ namespace CENTIS.XRPlatformManagement.Controller.Elements
                 return;
             }
 
-            IsHighlighted = true;
-
-
-            Renderer.GetMaterials(_currentMaterials);
-
-            if (ExchangeFirst)
+            _isHighlighted = true;
+            
+            foreach (var highlightData in _materialHighlightable)
             {
-                _exchangedMaterial = _currentMaterials[0];
-                _currentMaterials[0] = _highlightMaterialReference;
+                highlightData.Highlight();
             }
-            else
-            {
-                _currentMaterials.Add(_highlightMaterialReference);
-            }
-
-            Renderer.materials = _currentMaterials.ToArray();
         }
         
         public override void UnhighlightElement()
         {
-            if (!IsHighlighted)
+            if (!_isHighlighted)
             {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 Debug.LogWarning($"Tried to unhighlight: {gameObject.name} which is already unhighlighted!");
@@ -62,19 +53,12 @@ namespace CENTIS.XRPlatformManagement.Controller.Elements
                 return;
             }
 
-            IsHighlighted = false;
+            _isHighlighted = false;
 
-            if (_exchangedMaterial != null)
+            foreach (var highlightData in _materialHighlightable)
             {
-                _currentMaterials[0] = _exchangedMaterial;
-                _exchangedMaterial = null;
+                highlightData.Unhighlight(_highlightMaterialReference);
             }
-            else
-            {
-                _currentMaterials.Remove(_highlightMaterialReference);
-            }
-            
-            Renderer.materials = _currentMaterials.ToArray();
         }
     }
 }
