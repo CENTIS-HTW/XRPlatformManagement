@@ -4,6 +4,7 @@ using System.Linq;
 using CENTIS.XRPlatformManagement.Controller.Elements;
 using CENTIS.XRPlatformManagement.Utilities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CENTIS.XRPlatformManagement.Controller.Manager
 {
@@ -29,7 +30,7 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         {
             foreach (var buttonTextElement in _buttonTextMap)
             {
-                Enum[] buttonTypes = buttonTextElement.ModelButtonMask.GetUniqueFlags().ToArray();
+                Enum[] buttonTypes = buttonTextElement.ModelMask.GetUniqueFlags().ToArray();
                 if (buttonTypes.Contains(buttonType))
                 {
                     element.Initialize(_controllerElementTooltipViewPrefab, buttonTextElement.InstantiateAtObjectCenter, buttonTextElement.LocalPositionOverride, buttonTextElement.Text,
@@ -57,8 +58,8 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         [Serializable]
         private class ButtonTextMap
         {
-            [SerializeField] private ControllerModelButtonMask _modelButtonMask;
-            public ControllerModelButtonMask ModelButtonMask => _modelButtonMask;
+            [FormerlySerializedAs("_modelButtonMask")] [SerializeField] private ControllerModelMask _modelMask;
+            public ControllerModelMask ModelMask => _modelMask;
             
             [SerializeField] private bool _instantiateAtObjectCenter = true;
             public bool InstantiateAtObjectCenter => _instantiateAtObjectCenter;

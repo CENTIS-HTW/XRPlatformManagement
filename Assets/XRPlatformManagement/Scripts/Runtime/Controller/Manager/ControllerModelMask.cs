@@ -1,7 +1,7 @@
 ﻿namespace CENTIS.XRPlatformManagement.Controller.Manager
 {
     [System.Flags]
-    public enum ControllerModelButtonMask
+    public enum ControllerModelMask
     {
         None = 0,
         CompleteModel = 1,

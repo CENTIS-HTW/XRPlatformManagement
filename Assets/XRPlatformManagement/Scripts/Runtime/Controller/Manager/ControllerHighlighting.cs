@@ -7,7 +7,7 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
     /// <summary>
     /// Class for accessing highlighting for the 'ControllerModelRender'. Use this class as an entry point for highlighting in your required way.
     /// </summary>
-    public abstract class ControllerButtonHighlighting<T> : BaseActivatableControllerElementRegistration<T> where T : BaseHighlightableComponent
+    public abstract class ControllerHighlighting<T> : BaseActivatableControllerElementRegistration<T> where T : BaseHighlightableComponent
     {
         public void SetHighlighting(bool shouldHighlight)
         {

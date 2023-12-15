@@ -4,6 +4,11 @@ using UnityEngine.Events;
 
 namespace CENTIS.XRPlatformManagement.Controller.Manager
 {
+    /// <summary>
+    /// Extends the ControllerElementRegistrator by an activation layer, that can be activated from another class or by inheritance.
+    /// E.g. on button pressed down you can highlight it and when you release the button it will stop highlighting.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class BaseActivatableControllerElementRegistration<T> : BaseControllerElementRegistrator<T> where T : Component
     {
         #region Fields
@@ -47,12 +52,12 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
                 ActivateElement(keyValuePair.Value);
             }
 
-            InternalActivate();
+            InternalOnActivateComplete();
             _events.OnActivate?.Invoke();
         }
 
         /// <summary>
-        /// Deactivate all tooltips managed by this class (e.g. tooltips, highlighting)
+        /// Deactivate all elements managed by this class (e.g. tooltips, highlighting)
         /// </summary>
         public void Deactivate()
         {
@@ -64,7 +69,7 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
                 DeactivateElement(keyValuePair.Value);
             }
 
-            InternalDeactivate();
+            InternalOnDeactivateComplete();
             _events.OnDeactivate?.Invoke();
         }
         
@@ -105,8 +110,8 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         protected abstract override void InitializeElement(Enum buttonType, T element);
         protected abstract void ActivateElement(T element);
         protected abstract void DeactivateElement(T element);
-        protected virtual void InternalActivate() {}
-        protected virtual void InternalDeactivate() {}
+        protected virtual void InternalOnActivateComplete() {}
+        protected virtual void InternalOnDeactivateComplete() {}
         
         #endregion
         

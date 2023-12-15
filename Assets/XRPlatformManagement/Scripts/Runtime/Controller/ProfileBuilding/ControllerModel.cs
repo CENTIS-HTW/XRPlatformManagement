@@ -22,39 +22,39 @@ namespace CENTIS.XRPlatformManagement.Controller.ProfileBuilding
         [SerializeField] private GameObject gripButtonPrimary;
         [SerializeField] private GameObject gripButtonSecondary;
 
-        public GameObject GetModelByMask(ControllerModelButtonMask controllerModelButtonMask)
+        public GameObject GetModelByMask(ControllerModelMask controllerModelMask)
         {
-            switch (controllerModelButtonMask)
+            switch (controllerModelMask)
             {
-                case ControllerModelButtonMask.None:
+                case ControllerModelMask.None:
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-                    Debug.LogWarning($"Can't return a model with {ControllerModelButtonMask.None}!");
+                    Debug.LogWarning($"Can't return a model with {ControllerModelMask.None}!");
 #endif
                     return null;
-                case ControllerModelButtonMask.CompleteModel:
+                case ControllerModelMask.CompleteModel:
                     return completeModel;
-                case ControllerModelButtonMask.Body:
+                case ControllerModelMask.Body:
                     return body;
-                case ControllerModelButtonMask.PrimaryButton:
+                case ControllerModelMask.PrimaryButton:
                     return primaryButton;
-                case ControllerModelButtonMask.SecondaryButton:
+                case ControllerModelMask.SecondaryButton:
                     return secondaryButton;
-                case ControllerModelButtonMask.Trigger:
+                case ControllerModelMask.Trigger:
                     return trigger;
-                case ControllerModelButtonMask.SystemButton:
+                case ControllerModelMask.SystemButton:
                     return systemButton;
-                case ControllerModelButtonMask.ThumbStick:
+                case ControllerModelMask.ThumbStick:
                     return thumbStick;
-                case ControllerModelButtonMask.Trackpad:
+                case ControllerModelMask.Trackpad:
                     return trackpad;
-                case ControllerModelButtonMask.StatusLED:
+                case ControllerModelMask.StatusLED:
                     return statusLed;
-                case ControllerModelButtonMask.GripButtonPrimary:
+                case ControllerModelMask.GripButtonPrimary:
                     return gripButtonPrimary;
-                case ControllerModelButtonMask.GripButtonSecondary:
+                case ControllerModelMask.GripButtonSecondary:
                     return gripButtonSecondary;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(controllerModelButtonMask), controllerModelButtonMask, null);
+                    throw new ArgumentOutOfRangeException(nameof(controllerModelMask), controllerModelMask, null);
             }
         }
     }

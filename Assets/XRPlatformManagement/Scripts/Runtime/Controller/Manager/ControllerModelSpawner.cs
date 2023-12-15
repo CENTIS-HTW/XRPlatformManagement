@@ -192,13 +192,13 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         {
             if (!bufferedProfile.UseParts)
             {
-                InstantiateControllerElement(modelsLookup, ControllerModelButtonMask.CompleteModel, controllerModel.GetModelByMask(ControllerModelButtonMask.CompleteModel));
+                InstantiateControllerElement(modelsLookup, ControllerModelMask.CompleteModel, controllerModel.GetModelByMask(ControllerModelMask.CompleteModel));
                 return;
             }
             
-            foreach (ControllerModelButtonMask controllerButtonMask in (ControllerModelButtonMask[]) Enum.GetValues(typeof(ControllerModelButtonMask)))
+            foreach (ControllerModelMask controllerButtonMask in (ControllerModelMask[]) Enum.GetValues(typeof(ControllerModelMask)))
             {
-                if (controllerButtonMask != ControllerModelButtonMask.CompleteModel && controllerButtonMask != ControllerModelButtonMask.None)
+                if (controllerButtonMask != ControllerModelMask.CompleteModel && controllerButtonMask != ControllerModelMask.None)
                 {
                     InstantiateControllerElement(modelsLookup, controllerButtonMask, controllerModel.GetModelByMask(controllerButtonMask));
                 }
@@ -274,9 +274,9 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
             return _defaultModelsLookup;
         }
         
-        public bool TryGetCurrentModelsLookupByType(ControllerModelButtonMask controllerModelButtonMask, out ControllerElementServiceLocator controllerHighlightable)
+        public bool TryGetCurrentModelsLookupByType(ControllerModelMask controllerModelMask, out ControllerElementServiceLocator controllerHighlightable)
         {
-            return GetCurrentModelsLookup().TryGetValue(controllerModelButtonMask, out controllerHighlightable);
+            return GetCurrentModelsLookup().TryGetValue(controllerModelMask, out controllerHighlightable);
         }
         
         public bool TryGetCurrentModelsLookupByType(Enum controllerButtonMask, out ControllerElementServiceLocator controllerHighlightable)
