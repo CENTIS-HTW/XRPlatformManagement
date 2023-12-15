@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manufacturerType: HTC
   useParts: 1
-  leftHand: {fileID: 11400000, guid: ca9a14832037d5749aa758267f6c88a1, type: 2}
-  rightHand: {fileID: 11400000, guid: ca9a14832037d5749aa758267f6c88a1, type: 2}
+  leftHand: {fileID: 11400000, guid: ebca97310d8584141bfe79611bcbb391, type: 2}
+  rightHand: {fileID: 11400000, guid: ebca97310d8584141bfe79611bcbb391, type: 2}

@@ -1,18 +1,16 @@
-﻿using System;
-using CENTIS.XRPlatformManagement.Controller.Elements;
-using CENTIS.XRPlatformManagement.Controller.Manager;
+﻿using CENTIS.XRPlatformManagement.Controller.Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace VENTUS.PlaformPackageExtension
+namespace CENTIS.XRPlatformManagement.UsageSample
 {
-    public class InputControllerHighlighting : ControllerButtonHighlighting<ControllerElementMaterialHighlightable>
+    /// <summary>
+    /// Just Activate/Deactivate the inherited activatable part.
+    /// </summary>
+    public class InputControllerHighlighting : ControllerMaterialHighlighting
     {
         #region Fields
     
-        [Header("Highlight")]
-        [SerializeField] private Material _highlightMaterial;
-        [SerializeField] private bool _exchangeFirstMaterial;
         [SerializeField] private InputActionProperty _interactionInput;
     
         #endregion
@@ -45,15 +43,6 @@ namespace VENTUS.PlaformPackageExtension
         private void OnDisableInteraction(InputAction.CallbackContext context)
         {
             Deactivate();
-        }
-    
-        #endregion
-    
-        #region Inheritance
-    
-        protected override void InitializeElement(Enum buttonType, ControllerElementMaterialHighlightable element)
-        {
-            element.Initialize(_highlightMaterial, _exchangeFirstMaterial);
         }
     
         #endregion

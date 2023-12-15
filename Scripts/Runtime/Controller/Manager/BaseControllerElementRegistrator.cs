@@ -8,6 +8,10 @@ using UnityEngine.Serialization;
 
 namespace CENTIS.XRPlatformManagement.Controller.Manager
 {
+    /// <summary>
+    /// Base class for adding a component to a desired controller element (based on the ControllerModelMask).
+    /// </summary>
+    /// <typeparam name="T">The element to add to the controller object.</typeparam>
     [RequireComponent(typeof(ControllerModelSpawner))]
     public abstract class BaseControllerElementRegistrator<T> : MonoBehaviour where T : Component
     {
@@ -16,10 +20,10 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         [Header("Base")]
         [Tooltip("If unset, will be set on awake.")]
         [SerializeField] private ControllerModelSpawner _controllerModelSpawner;
-        [SerializeField] private ControllerModelButtonMask _modelButtonMask;
+        [SerializeField] private ControllerModelMask _modelMask;
 
         protected ControllerModelSpawner ControllerModelSpawner => _controllerModelSpawner;
-        protected ControllerModelButtonMask ModelButtonMask => _modelButtonMask;
+        protected ControllerModelMask ModelMask => _modelMask;
         protected readonly Dictionary<Enum, T> ElementLookup = new();
         
         #endregion
@@ -52,18 +56,18 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         private void InitializeComponent(ControllerModelSpawner controllerModelSpawner)
         {
             PopulateLookupByMask();
-            InternalOnFinishTrackingAcquired(controllerModelSpawner);
+            InternalOnAfterInitialize(controllerModelSpawner);
         }
         
         private void ReleaseComponent(ControllerModelSpawner controllerModelSpawner)
         {
+            InternalOnBeforeRelease(controllerModelSpawner);
             ClearLookup();
-            InternalOnFinishTrackingLost(controllerModelSpawner);
         }
         
         private void PopulateLookupByMask()
         {
-            Enum[] buttonTypes = _modelButtonMask.GetUniqueFlags().ToArray();
+            Enum[] buttonTypes = _modelMask.GetUniqueFlags().ToArray();
             foreach (Enum buttonType in buttonTypes)
             {
                 if (_controllerModelSpawner.TryGetCurrentModelsLookupByType(buttonType, out ControllerElementServiceLocator controllerElementManager))
@@ -90,8 +94,8 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
         #region Inheritance Methods
 
         protected abstract void InitializeElement(Enum buttonType, T element);
-        protected virtual void InternalOnFinishTrackingAcquired(ControllerModelSpawner controllerModelSpawner) { }
-        protected virtual void InternalOnFinishTrackingLost(ControllerModelSpawner controllerModelSpawner) { }
+        protected virtual void InternalOnAfterInitialize(ControllerModelSpawner controllerModelSpawner) { }
+        protected virtual void InternalOnBeforeRelease(ControllerModelSpawner controllerModelSpawner) { }
 
         #endregion
 
@@ -99,8 +103,8 @@ namespace CENTIS.XRPlatformManagement.Controller.Manager
 
         public void SetButtonMask(IEnumerable<Enum> buttonMask)
         {
-            _modelButtonMask = buttonMask.Select(x => (ControllerModelButtonMask) Enum.Parse(typeof(ControllerModelButtonMask), x.ToString()))
-                .Aggregate(ControllerModelButtonMask.None, (current, next) => current | next);
+            _modelMask = buttonMask.Select(x => (ControllerModelMask) Enum.Parse(typeof(ControllerModelMask), x.ToString()))
+                .Aggregate(ControllerModelMask.None, (current, next) => current | next);
         }
 
         public void UpdateContainedElements()

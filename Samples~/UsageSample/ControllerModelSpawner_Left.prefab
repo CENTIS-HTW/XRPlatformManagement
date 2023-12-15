@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controllerModelSpawner: {fileID: 8078342253465260487}
-  _modelButtonMask: -1
+  _modelMask: -1
   _isEnabled: 1
   _events:
     _onActivate:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controllerModelSpawner: {fileID: 8078342253465260487}
-  _modelButtonMask: 12
+  _modelMask: 12
   _isEnabled: 1
   _events:
     _onActivate:
@@ -151,11 +151,11 @@ MonoBehaviour:
   _isTextVisible: 1
   _isConnectionLineVisible: 1
   _buttonTextMap:
-  - _modelButtonMask: 4
+  - _modelMask: 4
     _instantiateAtObjectCenter: 1
     _localPositionOverride: {x: -0.07, y: 0.04, z: 0}
     _text: Primary
-  - _modelButtonMask: 8
+  - _modelMask: 8
     _instantiateAtObjectCenter: 1
     _localPositionOverride: {x: 0.07, y: 0.04, z: 0}
     _text: Secondary
