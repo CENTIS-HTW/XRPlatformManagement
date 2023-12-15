@@ -1,6 +1,6 @@
 {
   "name": "de.htw-berlin.centis.xrplatformmanagement",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "displayName": "XR Platform Management",
   "description": "Collection of Tools to help application management on different platforms for XR-Development",
   "unity": "2022.3",
